@@ -144,7 +144,7 @@ print('Finish loading the data....')
 if not args.aligned:
     print("### Note: You are running in unaligned mode.")
 
-writer = SummaryWriter(logdir="./experiments")
+writer = SummaryWriter(logdir=args.logdir)
 ####################################################################
 #
 # Hyperparameters

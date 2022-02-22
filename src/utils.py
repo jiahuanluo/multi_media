@@ -27,10 +27,10 @@ def save_load_name(args, name=''):
 
 def save_model(args, model, name=''):
     name = save_load_name(args, name)
-    torch.save(model, f'pre_trained_models/{name}.pt')
+    torch.save(model, f'{args.logdir}/{name}.pt')
 
 
 def load_model(args, name=''):
     name = save_load_name(args, name)
-    model = torch.load(f'pre_trained_models/{name}.pt')
+    model = torch.load(f'{args.logdir}/{name}.pt')
     return model
