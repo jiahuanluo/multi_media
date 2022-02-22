@@ -1,0 +1,16 @@
+__pycache__/
+.DS_Store
+outputs/
+output/
+tmp/
+.vscode/
+data/
+Data/
+.idea/
+cache/
+logs/
+*.log
+*.out
+*.csv
+experiments/
+pre_trained_models/
