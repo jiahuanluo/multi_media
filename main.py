@@ -49,9 +49,9 @@ parser.add_argument('--out_dropout', type=float, default=0.0,
                     help='output layer dropout')
 
 # Architecture
-parser.add_argument('--nlevels', type=int, default=5,
+parser.add_argument('--nlevels', type=int, default=8,
                     help='number of layers in the network (default: 5)')
-parser.add_argument('--num_heads', type=int, default=5,
+parser.add_argument('--num_heads', type=int, default=6,
                     help='number of heads for the transformer network (default: 5)')
 parser.add_argument('--attn_mask', action='store_false',
                     help='use attention mask for Transformer (default: true)')
@@ -65,9 +65,9 @@ parser.add_argument('--lr', type=float, default=1e-3,
                     help='initial learning rate (default: 1e-3)')
 parser.add_argument('--optim', type=str, default='Adam',
                     help='optimizer to use (default: Adam)')
-parser.add_argument('--num_epochs', type=int, default=40,
+parser.add_argument('--num_epochs', type=int, default=100,
                     help='number of epochs (default: 40)')
-parser.add_argument('--when', type=int, default=20,
+parser.add_argument('--when', type=int, default=60,
                     help='when to decay learning rate (default: 20)')
 parser.add_argument('--batch_chunk', type=int, default=1,
                     help='number of chunks per batch (default: 1)')
@@ -165,6 +165,7 @@ hyp_params.output_dim = output_dim_dict.get(dataset, 1)
 hyp_params.criterion = criterion_dict.get(dataset, 'L1Loss')
 hyp_params.writer = writer
 
+logging.info(hyp_params)
 
 if __name__ == '__main__':
     test_loss = train.initiate(hyp_params, train_loader, valid_loader, test_loader)
